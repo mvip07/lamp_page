@@ -1,0 +1,107 @@
+header {
+    padding: 40px 200px;
+
+    @if lgdesktop {
+        @media (max-width: 1200px) {
+            padding: 20px 70px;
+        }
+    }
+
+    @if phone {
+        @media (max-width: 576px) {
+            padding: 15px 30px; 
+        }
+    }
+    @include heigthvswidth ($heigth: 100vh, $width: 100%);
+    background: url("../../assets/images/nav-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    @include display ($displayflex: flex, $alignitem: center, $justifycontent: space-between, $flexdirection: none, $gap: none);
+
+    .nav-left {
+        @include display ($displayflex: flex, $alignitem: center, $justifycontent: space-between, $flexdirection: none, $gap: 10px);
+
+    }   
+        p {
+            @include font($fontweigth: normal, $fontsize: 22px, $lineheigth: 10px, $color: $white, $opacity: none, $textdecoration: none);  
+        }
+
+    .nav-center a {
+        margin: 0 20px;
+        @include font($fontweigth: normal, $fontsize: 18px, $lineheigth: 10px, $color: $white, $opacity: none, $textdecoration: none);   
+        @if tab {
+            @media (max-width: 768px) {
+               display: none;
+            }
+        }
+    }
+
+    .nav-rigth {
+        @include display ($displayflex: flex, $alignitem: center, $justifycontent: none, $flexdirection: none, $gap: 28px);
+    }
+}
+
+.header-text {
+    margin-top: 195px;
+    @if tab {
+        @media (max-width: 768px) {
+            margin-top: 140px;
+        }
+    }
+
+    p {
+        @include font($fontweigth: 500, $fontsize: 16px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);   
+        letter-spacing: 0.1em;
+    }
+
+    h1 {
+        @include font($fontweigth: bold, $fontsize: 60px, $lineheigth: 80px, $color: $white, $opacity: none, $textdecoration: none);  
+        @if desktop {
+            @media (max-width: 992px) {
+                @include font($fontweigth: bold, $fontsize: 50px, $lineheigth: 80px, $color: $white, $opacity: none, $textdecoration: none);  
+            }
+        } 
+        @if tab {
+            @media (max-width: 768px) {
+                @include font($fontweigth: bold, $fontsize: 35px, $lineheigth: 80px, $color: $white, $opacity: none, $textdecoration: none);  
+            }
+        }
+
+        @if phone {
+            @media (max-width: 576px) {
+                margin-top: 20px;
+                @include font($fontweigth: bold, $fontsize: 25px, $lineheigth: 40px, $color: $white, $opacity: none, $textdecoration: none);  
+            }
+        }
+    }
+}
+
+.btn {
+    @include font($fontweigth: 500, $fontsize: 20px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);   
+    margin-top: 50px;
+    padding: 22px 45px;
+    background: $orange;
+    backdrop-filter: blur(34px);
+    border-radius: 5px;
+    border: none;   
+    
+    @if desktop {
+        @media (max-width: 992px) {
+            margin-top: 30px;
+            padding: 15px 30px;
+            @include font($fontweigth: 500, $fontsize: 15px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);   
+        }
+    }
+
+    @if phone {
+        @media (max-width: 576px) {
+            margin-top: 30px;
+            padding: 10px 25px;
+            @include font($fontweigth: 400, $fontsize: 12px, $lineheigth: 15px, $color: $white, $opacity: none, $textdecoration: none);   
+        }
+    }
+}

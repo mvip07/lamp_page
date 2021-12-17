@@ -1,0 +1,139 @@
+.fourth-section {
+    @include display ($displayflex: flex, $alignitem: center, $justifycontent: center, $flexdirection: column, $gap: 30px);
+ 
+ .fourth-section-blog {
+        @include grid ($display: grid, $split: 3, $num: 360px, $row: 238px, $grid-gap: 30px); 
+
+        @if lgdesktop {
+            @media (max-width: 1200px) {
+                @include grid ($display: grid, $split: 2, $num: 360px, $row: 438px, $grid-gap: 30px); 
+            }
+        }
+
+        @if tab {
+            @media (max-width: 768px) {
+                @include grid ($display: grid, $split: 1, $num: 360px, $row: 438px, $grid-gap: 30px); 
+            }
+        }
+    }
+
+    h2 {
+        margin-bottom: 60px;
+        text-align: center;
+        @include font($fontweigth: 500, $fontsize: 38px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);  
+    }
+
+    .fourth-section-blog {
+        margin-bottom: 100px;
+        .fourth-section-blog-item:last-child {
+            display: none;
+            @if lgdesktop {
+                @media (max-width: 1200px) {
+                    display: block;
+                }
+            }
+        }
+
+        h4 {
+            margin: 28px 0 20px 0;
+            @include font($fontweigth: 500, $fontsize: 22px, $lineheigth: 23px, $color: $white, $opacity: none, $textdecoration: none);
+            @if phone {
+                @media (max-width: 576px) {
+                    padding: 0 20px;
+                }
+            }  
+        }
+
+        p {  
+            @include font($fontweigth: normal, $fontsize: 16px, $lineheigth: 24px, $color: $white, $opacity: 0.7, $textdecoration: none); 
+            margin-bottom: 43px;
+            @if phone {
+                @media (max-width: 576px) {
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        a {
+            @include font($fontweigth: 500, $fontsize: 18px, $lineheigth: 20px, $color: $orange, $opacity: 0.9, $textdecoration: none);
+            @if phone {
+                @media (max-width: 576px) {
+                    padding: 0 20px;
+                }
+            }  
+        }
+    }
+
+    .fourth-section-input-side {
+        @include display ($displayflex: flex, $alignitem: center, $justifycontent: space-between, $flexdirection: normal, $gap: 30px);
+        padding: 45px;
+        margin: 156px 0;
+        @include heigthvswidth ($heigth: 150px, $width: 70%);
+        background: $orange;
+        border-radius: 10px;
+        @if lgdesktop {
+            @media (max-width: 1200px) {
+                display: block;
+                margin: 116px 0;
+                @include display ($displayflex: flex, $alignitem: center, $justifycontent: space-around, $flexdirection: normal, $gap: 30px);
+                @include heigthvswidth ($heigth: 250px, $width: 100%);
+            }
+        }
+
+        @if desktop {
+            @media (max-width: 992px) {
+                margin: 76px 0;
+                padding: 45px 10px 0 10px;
+                text-align: center;
+                display: block;
+            }
+        }
+
+        .fourth-section-input-left-side h4 {
+            @include font($fontweigth: bold, $fontsize: 30px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);   
+        }
+
+        .fourth-section-input-left-side p {
+            margin-top: 20px;
+            @include font($fontweigth: normal, $fontsize: 16px, $lineheigth: 23px, $color: $white, $opacity: 0.8, $textdecoration: none);   
+            @if desktop {
+                @media (max-width: 992px) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .fourth-section-input-rigth-side input {
+            padding: 21px;
+            @include heigthvswidth ($heigth: 60px, $width: 456px);
+            background: $white;
+            border: 1px solid $white;
+            border-radius: 5px;  
+            
+            &:focus {
+                border:none;
+                outline: none;
+            }
+
+            @if phone {
+                @media (max-width: 576px) {
+                    @include heigthvswidth ($heigth: 60px, $width: 100%);
+                }
+            }
+        }
+
+        .fourth-section-input-rigth-side img {
+            position: relative;
+            top: 8px;
+            left: -70px;
+
+            @if tab {
+                @media (max-width: 768px) {
+                    padding: 45px 0 0 0;
+                    text-align: center;
+                    display: block;
+                }
+            }
+        }   
+    }
+}
