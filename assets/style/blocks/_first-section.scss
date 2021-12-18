@@ -1,0 +1,145 @@
+.first-section {
+    @include display ($displayflex: flex, $alignitem: center, $justifycontent: center, $flexdirection: column, $gap: none); 
+    padding: 0px 200px 200px 200px;
+
+    @if tab {
+        @media (max-width: 768px) {
+            padding: 0px 100px 100px 100px;
+        }
+    }
+
+    @if phone {
+        @media (max-width: 576px) {
+            padding: 0px 50px 50px 50px;
+        }
+    }
+
+    .first-section-header {
+        text-align: center;
+            h2 {
+                width: 100%;
+                text-align: center;
+                @include font($fontweigth: 500, $fontsize: 38px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none); 
+            }
+
+            button {
+                @include heigthvswidth ($heigth: 44px, $width: 133px);
+                @include font($fontweigth: 500, $fontsize: 14px, $lineheigth: 20px, $color: $white, $opacity: .6, $textdecoration: none); 
+                margin: 40px 20px;
+                padding: 12px 0;
+                border: 1px solid $orange;
+                border-radius: 5px;
+                background: $orange;
+
+                &:hover {
+                    background: $orange;
+                    opacity: 1;
+                }
+            }
+        }
+
+    .first-section-container {
+        @include grid ($display: grid, $split: 4, $num: 262px, $row: 330px, $grid-gap: 30px);
+
+        @if lgdesktop {
+            @media (max-width: 1200px) {
+                @include grid ($display: grid, $split: 3, $num: 262px, $row: 330px, $grid-gap: 30px);
+            }
+        }
+
+        @if desktop {
+            @media (max-width: 992px) {
+                @include grid ($display: grid, $split: 2, $num: 262px, $row: 330px, $grid-gap: 30px);
+            }
+        }
+
+        @if phone {
+            @media (max-width: 576px) {
+                @include grid ($display: grid, $split: 1, $num: 262px, $row: 330px, $grid-gap: 30px);
+            }
+        }
+
+        .first-section-container-blog {
+            padding: 10px 30px 21px 30px;
+            background: #494949;
+            box-shadow: 16px 10px 20px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            position: relative;
+
+            img:first-child {
+                @include heigthvswidth ($heigth: 196px, $width: 100%);
+                position: relative;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            .korzinka-images {
+                position: absolute;
+                top: -10px;
+                left: 230px;
+                padding: 14px 13px 12px 12px;
+                border-radius: 50%;
+                background: $orange;
+
+                img {
+                    @include heigthvswidth ($heigth: 18px, $width: 18px);
+                }
+            }
+
+            p {
+                margin: 0 0 20px 0;
+                @include font($fontweigth: 500, $fontsize: 16px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);     
+            }
+
+            span {
+                @include font($fontweigth: 500, $fontsize: 20px, $lineheigth: 20px, $color: $orange, $opacity: none, $textdecoration: none); 
+            }
+
+            .color {
+                @include display ($displayflex: flex, $alignitem: center, $justifycontent: center, $flexdirection: none, $gap: 10px); 
+                padding: 0;
+                position: relative;
+                margin-top: 30px;
+            }
+
+            .color div {
+                @include heigthvswidth ($heigth: 10px, $width: 10px);
+                border-radius: 50%;
+
+                &:hover {
+                    transform: scale(1.7);
+                    border: 3px solid #E9E9E9;                  
+                }
+            }
+        }
+
+        .first-section-container-blog:last-child {
+            display: none;
+
+            @if lgdesktop {
+                @media (max-width: 1200px) {
+                    display: block;
+                }
+            }
+
+            @if desktop {
+                @media (max-width: 992px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.orange {
+    background: $orange;
+}
+
+.purple {
+    background: #360050;
+} 
+
+.black {
+    background: #262D30;
+}

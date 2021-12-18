@@ -1,0 +1,65 @@
+.container {
+    margin: 100px auto;
+    @include display ($displayflex: flex, $alignitem: center, $justifycontent: center, $flexdirection: none, $gap: none);
+    @include grid ($display: grid, $split: 2, $num: 555px, $row: 360px, $grid-gap: 30px);
+
+    @if lgdesktop {
+        @media (max-width: 1200px) {
+            @include grid ($display: grid, $split: 1, $num: 555px, $row: 360px, $grid-gap: 0px);
+        }
+    }
+
+    @if phone {
+        @media (max-width: 576px) {
+            margin: 50px auto;
+            @include grid ($display: grid, $split: 1, $num: 444px, $row: 300px, $grid-gap: 0px);
+        }
+    }
+
+    @if phone {
+        @media (max-width: 555px) {
+            @include grid ($display: grid, $split: 1, $num: 333px, $row: 250px, $grid-gap: 0px);
+        }
+    }
+
+    .container-left,
+    .container-rigth {
+        @include display ($displayflex: flex, $alignitem: center, $justifycontent: center, $flexdirection: none, $gap: 0px);
+        position: relative;
+
+        img {
+            @if phone {
+                @media (max-width: 600px) {
+                        width: 444px;
+                }
+            }
+
+            @if phone {
+                @media (max-width: 555px) {
+                        width: 333px;
+                }
+            }
+        }
+
+        .container-left-text,
+        .container-rigth-text {
+            position: absolute;
+            top: calc(50% - 49px);
+            left: 10%;
+            color: $white;
+
+            p:first-child {
+                @include font($fontweigth: 500, $fontsize: 16px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);    
+            }
+
+            h4 {
+                @include font($fontweigth: bold, $fontsize: 22px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);   
+                margin: 11px 0 27px 0; 
+            }
+
+            p:last-child {
+                @include font($fontweigth: 500, $fontsize: 12px, $lineheigth: 20px, $color: $white, $opacity: none, $textdecoration: none);      
+            }
+        }
+    }
+}
